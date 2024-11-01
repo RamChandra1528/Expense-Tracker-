@@ -1,0 +1,84 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    color: #343a40;
+}
+
+h1, h4 {
+    color: #007bff;
+}
+
+/* Navbar Styles */
+.navbar {
+    margin-bottom: 20px;
+}
+
+.navbar-brand {
+    font-weight: bold;
+}
+
+/* Card Styles */
+.card {
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+}
+
+.card h4 {
+    margin-bottom: 20px;
+}
+
+/* Table Styles */
+.table {
+    margin-top: 20px;
+    border-collapse: collapse;
+}
+
+.table th, .table td {
+    padding: 12px;
+    text-align: left;
+}
+
+.table thead th {
+    background-color: #343a40;
+    color: #ffffff;
+}
+
+/* Footer Styles */
+footer {
+    background-color: #f1f1f1;
+    padding: 20px 0;
+}
+
+footer h5 {
+    margin-bottom: 15px;
+    color: #007bff;
+}
+
+footer p {
+    color: #555555;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .navbar-collapse {
+        margin-top: 10px;
+    }
+
+    .text-right {
+        text-align: left;
+    }
+
+    .form-label {
+        font-weight: bold;
+    }
+
+    .btn {
+        margin-top: 5px;
+    }
+
+    .card {
+        padding: 15px;
+    }
+}

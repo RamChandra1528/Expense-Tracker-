@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enhanced Expense Tracker</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script> <!-- Include html2pdf.js -->
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+   <!-- Navigation Bar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+        <a class="navbar-brand" href="#">Expense Tracker</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="about.html">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contact.html">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="help.html">Help</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+    <div class="container my-4">
+        <h1 class="text-center mb-4">Enhanced Expense Tracker</h1>
+
+        <!-- Download PDF Button -->
+        <div class="text-right mb-4">
+            <button class="btn btn-success" onclick="downloadPDF()">Download PDF</button>
+        </div>
+
+        <!-- Balance Input -->
+        <div class="mb-3">
+            <label for="initial-balance" class="form-label">Initial Balance</label>
+            <input type="number" id="initial-balance" class="form-control" placeholder="Enter starting balance" onchange="updateBalance()">
+        </div>
+
+        <!-- Expense Input Form -->
+        <div class="card p-3 mb-4">
+            <h4>Add New Expense</h4>
+            <div class="row">
+                <div class="col-md-3 mb-2">
+                    <input type="date" id="expense-date" class="form-control" required>
+                </div>
+                <div class="col-md-3 mb-2">
+                    <input type="text" id="expense-item" class="form-control" placeholder="Item" required>
+                </div>
+                <div class="col-md-2 mb-2">
+                    <input type="number" id="expense-amount" class="form-control" placeholder="Amount" required>
+                </div>
+                <div class="col-md-2 mb-2">
+                    <select id="expense-category" class="form-control">
+                        <option value="Food">Food</option>
+                        <option value="Travel">Travel</option>
+                        <option value="Shopping">Shopping</option>
+                        <option value="Bills">Bills</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                <div class="col-md-2 mb-2">
+                    <button class="btn btn-primary btn-block" onclick="addExpense()">Add Expense</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Filter and Summary Section -->
+        <div class="row mb-4">
+            <div class="col-md-6">
+                <label for="category-filter" class="form-label">Filter by Category</label>
+                <select id="category-filter" class="form-control" onchange="filterExpenses()">
+                    <option value="All">All</option>
+                    <option value="Food">Food</option>
+                    <option value="Travel">Travel</option>
+                    <option value="Shopping">Shopping</option>
+                    <option value="Bills">Bills</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+            <div class="col-md-6 text-right">
+                <p><strong>Total Expenses:</strong> ₹<span id="total-expenses">0</span></p>
+                <p><strong>Remaining Balance:</strong> ₹<span id="remaining-balance">0</span></p>
+            </div>
+        </div>
+
+        <!-- Expense Table -->
+        <div id="expense-content">
+            <table class="table table-bordered" id="expense-table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Date</th>
+                        <th>Item</th>
+                        <th>Category</th>
+                        <th>Amount (₹)</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="expense-body">
+                    <!-- Expenses will appear here -->
+                </tbody>
+            </table>
+
+            <!-- Monthly Summary Table -->
+            <h4 class="mt-4">Monthly Summary</h4>
+            <table class="table table-bordered" id="monthly-summary-table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Month</th>
+                        <th>Total Amount (₹)</th>
+                    </tr>
+                </thead>
+                <tbody id="monthly-summary-body">
+                    <!-- Monthly totals will appear here -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-light text-center text-lg-start mt-4">
+        <div class="container p-4">
+            <div class="row">
+                <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
+                    <h5 class="text-uppercase">Expense Tracker</h5>
+                    <p>Your one-stop solution to manage your expenses effectively and effortlessly.</p>
+                </div>
+                <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
+                    <h5 class="text-uppercase">Links</h5>
+                    <ul class="list-unstyled">
+                        <li>
+                            <a href="privacy-policy.html" class="text-dark">Privacy Policy</a>
+                        </li>
+                        <li>
+                            <a href="terms-of-service.html" class="text-dark">Terms of Service</a>
+                        </li>
+                        <li>
+                            <a href="help-center.html" class="text-dark">Help Center</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="text-center p-3" style="background-color: #e9ecef;">
+            &copy; 2024 Expense Tracker. All rights reserved.
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
+</body>
+</html>

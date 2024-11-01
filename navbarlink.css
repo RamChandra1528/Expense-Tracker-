@@ -1,0 +1,98 @@
+/* Body Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+    color: #343a40;
+}
+
+/* Navigation Bar Styles */
+.navbar {
+    background-color: #f8f9fa; /* Light background for the navbar */
+    padding: 15px 20px;
+    border-bottom: 1px solid #dee2e6; /* Light bottom border */
+}
+
+.navbar-brand {
+    color: #343a40; /* Dark text for the brand name */
+    font-weight: bold;
+    font-size: 1.8rem;
+    text-decoration: none;
+}
+
+.navbar-toggler {
+    border: none;
+}
+
+.navbar-toggler-icon {
+    background-color: #343a40;
+}
+
+.navbar-nav {
+    margin-left: auto; /* Aligns nav items to the right */
+    display: flex;
+    gap: 15px;
+    list-style: none; /* Remove bullets */
+    padding: 0; /* Remove default padding */
+}
+
+.nav-link {
+    color: #343a40; /* Dark text for nav links */
+    font-size: 1rem;
+    padding: 10px 15px;
+    text-decoration: none; /* Remove underline */
+}
+
+.nav-link:hover {
+    color: #007bff; /* Blue color on hover */
+    text-decoration: underline; /* Underline on hover */
+}
+
+/* Container Styles */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+p {
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+/* Footer Styles */
+footer {
+    background-color: #e9ecef;
+    padding: 15px 0;
+    margin-top: 20px;
+    text-align: center;
+}
+
+footer p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #6c757d;
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+    }
+
+    .navbar-nav {
+        text-align: center;
+    }
+
+    .nav-link {
+        padding: 10px;
+    }
+}
